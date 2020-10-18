@@ -1,0 +1,24 @@
+.header {
+	position: relative;
+}
+
+.title {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	@include tr(-50%, 0, 0);
+
+	& a {
+		font-family: Sansita;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 48px;
+		line-height: 58px;
+		color: #000000;
+		@media (max-width: 767px) {
+			font-size: 40px;
+			line-height: 50px;
+		}
+	}
+
+}

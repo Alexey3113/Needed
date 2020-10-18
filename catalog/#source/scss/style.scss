@@ -1,0 +1,650 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Average+Sans&family=Montserrat:wght@400;700&family=Sansita&display=swap');
+
+
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Arial";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1260;
+$md1: $mw+12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+
+body {
+	color: #000;
+	font-size: 14px;
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	
+
+	&.loaded {}
+}
+
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+	}
+
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 10px;
+	}
+}
+
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    @include flexbox();
+    flex-direction: column;
+}
+
+
+
+
+.main-screen {
+	margin: 60px 0 0 0;
+	flex: 1 0 100%;
+	padding: 5% 0;
+	background-color: #c0c0c0;
+	position: relative;
+
+	@media (max-width: 767px) {
+		flex: 1 0 99%;
+	}
+
+	// .main-screen__bg
+	&__bg {
+		position: absolute;
+		top: 0;
+		left: 0;
+		@include flexbox();
+		align-items: center;
+		justify-content: center;
+		& img {
+			@media (max-width: 767px) {
+				object-fit: fill;
+			}
+		}
+	}
+}
+
+//================================================
+
+
+.containers {
+	max-width: 1260px;
+	margin: 0 auto;
+	width: 100%;
+
+	@media (max-width: 1250px) {
+		max-width: 1200px;
+	}
+
+	@media (max-width: 1200px) {
+		max-width: 1110px;
+	}
+
+	@media (max-width: 1050px) {
+		max-width: 617px;
+	}
+
+	@media (max-width: 640px) {
+		max-width: 531px;
+	}
+
+	@media (max-width: 530px) {
+		max-width: 500px;
+	}
+
+	@media (max-width: 500px) {
+		max-width: none;
+	}
+}
+
+
+.catalog {
+	padding: 55px 0 40px 0;
+	@media (max-width: 1050px){
+		padding: 45px 0 104px 0;
+	}
+	@media (max-width: 767px){
+		padding: 20px 0 40px 0;
+	}
+	// .catalog__body
+
+	&__body1 {
+		&::after {
+			content: '';
+			width: 100%;
+			height: 1px;
+			background: #C4C4C4;
+			display: block;
+			position: relative;
+
+			left: 0;
+			top: 0; //130
+			margin: 74px 0 0 0;
+
+			@media (max-width: 640px) {
+				margin: 61px 0 0 0;
+			}
+
+			@media (max-width: 500px) {
+				max-width: 380px;
+				margin: 61px auto 0 auto;
+			}
+
+			@media (max-width: 400px) {
+				max-width: 290px;
+				margin: 51px auto 0 auto;
+			}
+		}
+	}
+
+	// .catalog__bottom
+
+	&__bottom {}
+
+	&__title {
+		font-family: 'Sansita';
+		font-size: 36px;
+		line-height: 43px;
+		text-align: center;
+		margin: 0 0 40px 0;
+		padding: 0 10px;
+		color: #000000;
+	}
+}
+
+.block {
+
+	@include flexbox;
+	padding: 0 10px 0 10px;
+
+	@media (max-width: 1050px) {
+		flex-wrap: wrap;
+	}
+
+	@media (max-width: 500px) {
+		justify-content: center;
+		align-items: center;
+	}
+
+	&__body {
+		// position: absolute;
+		// top: 0;
+		// left: 0;
+		// z-index: 10;
+	}
+
+	// .block__cloumn
+
+	&__cloumn {
+		flex: 0 1 25%;
+		margin-right: 80px;
+		// padding: 0 10px 0 10px;
+
+		box-sizing: border-box;
+		max-width: 252px;
+		height: 260px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		@media (max-width: 1250px) {
+			margin-right: 60px;
+
+		}
+
+		@media (max-width: 1200px) {
+			margin-right: 30px;
+		}
+
+
+		@media (max-width: 1050px) {
+			flex: 0 1 50%;
+
+			margin: 0 80px 40px 0;
+
+			&:last-child,
+			&:nth-child(2) {
+				margin-right: 0;
+			}
+
+			width: 252px;
+			height: 250px;
+		}
+		@media (max-width: 768px) {
+			&:last-child{
+				margin-bottom: 0;
+			}
+		}
+
+		@media (max-width: 640px) {
+			max-width: 218px;
+			max-height: 301px;
+			margin-right: 70px;
+		}
+
+		@media (max-width: 530px) {
+			margin-right: 39px;
+		}
+
+		@media (max-width: 500px) {
+			max-width: 60%;
+			flex: 1 1 100%;
+			margin-right: 0;
+
+			// margin-right: 0;
+		}
+
+		@media (max-width: 400px) {
+			max-width: 70%;
+
+			// margin-right: 0;
+		}
+
+	}
+
+	// .block__item
+
+	&__item {}
+}
+
+.item {
+	display: block;
+	border: 1px solid #C4C4C4;
+	position: relative;
+	// height: 100%;
+	// left: 0;
+	// right: 0;
+
+	// background: #fff;
+	&__sell {
+		position: absolute;
+		left: 0;
+		top: 5px;
+		background-color: #73B6E1;
+		text-transform: uppercase;
+		padding: 10px;
+		z-index: 12;
+		font-size: 14px;
+		color: #fff;
+		visibility: hidden;
+	}
+
+
+	// .item__image
+
+	&__image {
+		max-width: 96%;
+
+		// transition: 1s all;
+		// height: 230px;
+		height: 170px;
+		margin: 10px auto 10px auto;
+		// padding: 0 10px 0 50px;		
+		@include flexbox;
+		justify-content: center;
+		align-items: center;
+
+
+		// padding: 0 0 86.6% 0;
+		// max-width: 100%;
+		@media (max-width: 640px) {
+			height: 150px;
+
+		}
+
+		@media (max-width: 400px) {
+			margin: 0 auto 10px auto;
+
+			// margin-right: 0;
+		}
+
+
+
+		// position: absolute;
+		// left: 0;
+		// right: 0;
+
+		& img {
+			// object-fit: fill;
+		}
+
+		// &:hover{
+		// 	background-color: red;
+		// 	&__image {
+		// 		transform: scale(1.1, 1.1);
+		// 	}
+		// }
+
+
+	}
+
+	// .item__title
+
+	&__title {
+		font-family: 'Montserrat';
+		font-weight: bold;
+		font-size: 14px;
+		text-transform: uppercase;
+		line-height: 17px;
+		color: #000000;
+		margin: 15px 0 14px 0;
+		padding: 0 0 0 25px;
+
+		@media (max-width: 1350px) {
+			font-size: 15px;
+		}
+
+		@media (max-width: 1150px) {
+			font-size: 14px;
+
+		}
+		@media (max-width: 400px){
+			padding: 0 0 0 15px;
+		}
+	}
+
+	// .item__text
+
+	&__text {
+		font-family: 'Average Sans';
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 16px;
+		position: relative;
+		top: 0;
+		left: 0;
+		color: #000;
+		padding: 0 0 25px 50px;
+		@media (max-width: 400px){
+			padding: 0 0 20px 40px;
+		}
+		// background: url('../../img/catalog/tel.jpg');
+
+		&::before {
+			content: '';
+			background: url('../img/catalog/vector.png') no-repeat;
+			position: absolute;
+			left: 20px;
+			top: 0px;
+			width: 30px;
+			height: 20px;
+			@media (max-width: 400px){
+				left: 10px;
+			}
+
+		}
+
+		// @media (max-width: 1250px) {
+		// 	font-size: 16px;
+
+		// }
+
+		// @media (max-width: 1150px) {
+		// 	font-size: 14px;
+
+		// }
+	}
+}
+
+.item:hover {
+	cursor: pointer;
+	border: 1px solid #73B6E1;
+
+	.item__title {
+		color: #73B6E1;
+		transition-duration: 500ms;
+	}
+
+	.item__text {
+		color: #73B6E1;
+		transition-duration: 500ms;
+
+		&::before {}
+	}
+
+	.item__sell {
+		visibility: visible;
+	}
+
+	.item__image {
+		margin: 10px 0 10px 5px;
+		transform: scale(1.03, 1.1);
+		transition-timing-function: ease-out;
+		transition-duration: 700ms;
+	}
+}
+
+
+.catalog {
+
+	// .catalog__bottom
+
+	&__bottom {
+		padding: 40px 10px 0 10px;
+
+	}
+
+	// .catalog__block2
+
+	&__block2 {}
+}
+
+.block2 {
+
+	// .block2__body
+	@media (max-width: 500px) {
+		margin: 0 auto;
+		max-width: 350px;
+		// padding: 0 10px 0 10px;
+	}
+
+	@media (max-width: 400px) {
+		max-width: 300px;
+		margin: 0 auto;
+	}
+
+	@media (max-width: 380px) {
+		max-width: 270px;
+	}
+
+	&__body {
+		@include flexbox;
+
+		justify-content: space-between;
+
+		@media (max-width: 1050px) {
+			justify-content: flex-start;
+		}
+
+
+	}
+
+	// .block2__column
+
+	&__column {
+		// flex: 0 1 40%;
+		// &-m{
+		// 	flex: 0 1 20%;
+		// }
+	}
+
+	// .block2__email
+
+	&__email {
+		border: 1px solid #000000;
+		// @include flexbox;
+		// 	box-sizing: border-box;
+		border-radius: 2px;
+		font-family: 'Montserrat';
+		font-size: 12px;
+		line-height: 15px;
+		color: #000000;
+		padding: 8px 0 8px 13px;
+		width: 420px;
+		max-width: 420px;
+
+		@media (max-width: 1250px) {
+			width: 320px;
+		}
+
+		@media (max-width: 1050px) {
+			width: 420px;
+			margin: 0 40px 0 0;
+		}
+
+		@media (max-width: 640px) {
+			width: 360px;
+			margin: 0 20px 0 0;
+		}
+
+		@media (max-width: 540px) {
+			width: 300px;
+
+		}
+
+		@media (max-width: 500px) {
+			width: 200px;
+			margin: 0 20px 0 0;
+		}
+
+		@media (max-width: 450px) {
+			margin: 0 20px 0 0;
+		}
+
+		@media (max-width: 400px) {
+			margin: 0 0 0 0;
+			width: 170px;
+		}
+
+	}
+
+	// // .block2__subscribe
+
+	&__subscribe {
+		font-family: 'Montserrat';
+		// @include flexbox;
+		display: block;
+		font-size: 12px;
+		line-height: 15px;
+		color: #000000;
+		border: 1px solid #000000;
+		text-align: center;
+		padding: 8px 40px 8px 40px;
+
+		@media (max-width: 400px) {
+			padding: 8px 20px 8px 20px;
+			margin: 0 0 0 20px;
+		}
+
+		@media (max-width: 380px) {
+			padding: 8px 9px 8px 9px;
+		}
+
+		// margin: 10px 0 0 0;
+	}
+
+	// // .block2__text
+
+	&__text {
+		font-family: 'Montserrat';
+		font-size: 18px;
+		line-height: 22px;
+		color: #000000;
+
+		@media (max-width: 1250px) {
+			font-size: 16px;
+		}
+
+		@media (max-width: 1100px) {
+			font-size: 15px;
+		}
+
+		@media (max-width: 1050px) {
+			display: none;
+		}
+	}
+}
+
+
+
+
+//====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
